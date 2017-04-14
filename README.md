@@ -15,6 +15,6 @@ To delete useless files
 
 上标引用用
 
-    xxx\citeup[refname]
+    xxx\citeup{refname}
 
 其中 `refname` 是 `reference.bib` 中参考文献对应的名字。
