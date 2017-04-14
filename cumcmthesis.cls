@@ -18,6 +18,13 @@
 \newcommand*\mcm@tokens@yearinput{}
 \newcommand*\mcm@tokens@monthinput{}
 \newcommand*\mcm@tokens@dayinput{}
+%%%% title page
+\newcommand*\mcm@tokens@coursename{}
+\newcommand*\mcm@tokens@classselected{}
+\newcommand*\mcm@tokens@classtime{}
+\newcommand*\mcm@tokens@theteacher{}
+\newcommand*\mcm@tokens@themonth{}
+\newcommand*\mcm@tokens@theday{}
 %%%% 编号专用页
 % 没有
 %% Declaration of Options 
@@ -84,13 +91,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% Document Layout
 % 页面布局
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
-\renewcommand*{\baselinestretch}{1.38}
+%\renewcommand*{\baselinestretch}{1.2}
+\setlength{\baselineskip}{22pt}
 % 修改tabular 环境, 设置表格中的行间距为正文行间距.
 \let\mcm@oldtabular\tabular
 \let\mcm@endoldtabular\endtabular
 \renewenvironment{tabular}%
 	{\bgroup%
-	\renewcommand{\arraystretch}{1.38}%
+	\renewcommand{\arraystretch}{1.2}%
 	\mcm@oldtabular}%
 	{\mcm@endoldtabular\egroup}
 % 每行缩进两个汉字
@@ -313,10 +321,40 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 {\centering \zihao{3}\bfseries \@title\par}
 \vskip1ex
 \else
+%{\hspace*{-2em}论文评阅编号: \mcm@tokens@tihao\mcm@tokens@baominghao\par}
+\thispagestyle{empty}
+\null
+{\vskip5em\noindent 课程名称：\mcm@tokens@coursename\par}
+{\vskip7em \hspace*{1em} 论文题目： {\centering\zihao{3}\heiti \@title}\par}
+{\vskip5em
+\hspace*{2em} 班级：\mcm@tokens@classselected\par
+\hspace*{2em} 姓名：\@author\par
+\hspace*{2em} 选课时间：\mcm@tokens@classtime\par
+\hspace*{2em} 指导教师：\mcm@tokens@theteacher\par
+}
+{\vskip3em \hspace*{2em} 论文完成时间：\hspace{1em}2017 年 \mcm@tokens@themonth 月 \mcm@tokens@theday 日\par}
+\begin{center}
+\vskip3em\begin{tabular}{|c|c|}
+ \hline
+ \makebox[0.45\textwidth][l]{论文成绩}	&  \makebox[0.45\textwidth][c]{} \\
+ \hline
+ \multicolumn{2}{|l|}{教师评语} \\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \multicolumn{2}{|l|}{}\\
+ \hline
+\end{tabular}\par
+\end{center}
+\null
+\newpage
+\null
 \setcounter{page}{1}
-{\hspace*{-2em}论文评阅编号: \mcm@tokens@tihao\mcm@tokens@baominghao\par}
-{\centering \zihao{3}\heiti \@title\par}
-\vskip1ex
 \fi
 }
 
@@ -341,7 +379,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand\section{\@startsection{section}{1}{\z@}%
  	{-3.5ex \@plus -1ex \@minus -.2ex}%
 	{2.3ex \@plus.2ex}%
-	{\centering\normalfont\zihao{4}\heiti}}
+	{\normalfont\zihao{4}\heiti}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
 	{-3.25ex\@plus -1ex \@minus -.2ex}%
 	{1.5ex \@plus .2ex}%
@@ -434,6 +472,19 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	\renewcommand{\mcm@tokens@monthinput}{#1}}
 \newcommand*\dayinput[1]{%
 	\renewcommand{\mcm@tokens@dayinput}{#1}}
+
+\newcommand*\coursename[1]{%
+	\renewcommand{\mcm@tokens@coursename}{#1}}
+\newcommand*\classselected[1]{%
+	\renewcommand{\mcm@tokens@classselected}{#1}}
+\newcommand*\classtime[1]{%
+	\renewcommand{\mcm@tokens@classtime}{#1}}
+\newcommand*\theteacher[1]{%
+	\renewcommand{\mcm@tokens@theteacher}{#1}}
+\newcommand*\themonth[1]{%
+	\renewcommand{\mcm@tokens@themonth}{#1}}
+\newcommand*\theday[1]{%
+	\renewcommand{\mcm@tokens@theday}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
