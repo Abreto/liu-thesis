@@ -11,7 +11,7 @@ To delete useless files
 
 # 其他
 
-设置参考 `example.tex` 的 6~13 行。参考文献在 `reference.bib`行。参考文献在
+设置参考 `example.tex` 的 6~13 行。参考文献在 `reference.bib`。
 
 上标引用用
 
